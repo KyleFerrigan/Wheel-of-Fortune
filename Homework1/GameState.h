@@ -1,4 +1,4 @@
-//  GameState.hpp
+//  GameState.h
 //  Homework1
 //
 //  Created by Kyle Ferrigan on 9/12/20.
@@ -8,8 +8,8 @@
  State: container of prize money, current phrase being played, current state of the guessed phrase, container of incorrectly guessed letters, the names of the two players, the dollar value earned by each player.
  Behavior: plays a game of Wheel of Fortune as discussed above using appropriate methods to modify state. Prize money container is populated via an input file (ifstream parameter that refers to an open input file). */
 
-#ifndef GameState_hpp
-#define GameState_hpp
+#ifndef GameState_h
+#define GameState_h
 
 //Include Statements
 #include <string>
@@ -35,4 +35,4 @@ public:
     
 };
 
-#endif /* GameState_hpp */
+#endif /* GameState_h */

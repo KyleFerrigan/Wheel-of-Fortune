@@ -8,7 +8,7 @@
 State: container of phrases
 Behavior: populates the phrases via an input file (ifstream parameter that refers to an open input file), accesses a random phrase from the container */
 
-#include "GamePhrases.hpp"
+#include "GamePhrases.h"
 #include <string>
 #include <iostream>
 #include <fstream>

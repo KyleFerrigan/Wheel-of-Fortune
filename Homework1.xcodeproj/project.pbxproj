@@ -26,9 +26,9 @@
 
 /* Begin PBXFileReference section */
 		FD52D050250D7A9B008B3575 /* GamePhrases.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GamePhrases.cpp; sourceTree = "<group>"; };
-		FD52D051250D7A9B008B3575 /* GamePhrases.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GamePhrases.hpp; sourceTree = "<group>"; };
+		FD52D051250D7A9B008B3575 /* GamePhrases.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamePhrases.h; sourceTree = "<group>"; };
 		FD52D053250D7AAC008B3575 /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
-		FD52D054250D7AAC008B3575 /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
+		FD52D054250D7AAC008B3575 /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		FDB85491250BE35C006A4346 /* Homework1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Homework1; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB85494250BE35C006A4346 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,9 +65,9 @@
 			children = (
 				FDB85494250BE35C006A4346 /* main.cpp */,
 				FD52D050250D7A9B008B3575 /* GamePhrases.cpp */,
-				FD52D051250D7A9B008B3575 /* GamePhrases.hpp */,
+				FD52D051250D7A9B008B3575 /* GamePhrases.h */,
 				FD52D053250D7AAC008B3575 /* GameState.cpp */,
-				FD52D054250D7AAC008B3575 /* GameState.hpp */,
+				FD52D054250D7AAC008B3575 /* GameState.h */,
 			);
 			path = Homework1;
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@
  Behavior: plays a game of Wheel of Fortune as discussed above using appropriate methods to modify state. Prize money container is populated via an input file (ifstream parameter that refers to an open input file). */
 
 //Include Statements
-#include "GameState.hpp"
+#include "GameState.h"
 #include <string>
 #include <iostream>
 #include <fstream>

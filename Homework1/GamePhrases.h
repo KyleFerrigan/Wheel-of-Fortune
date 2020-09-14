@@ -1,4 +1,4 @@
-//  GamePhrases.hpp
+//  GamePhrases.h
 //  Homework1
 //
 //  Created by Kyle Ferrigan on 9/12/20.
@@ -8,8 +8,8 @@
 State: container of phrases
 Behavior: populates the phrases via an input file (ifstream parameter that refers to an open input file), accesses a random phrase from the container */
 
-#ifndef GamePhrases_hpp
-#define GamePhrases_hpp
+#ifndef GamePhrases_h
+#define GamePhrases_h
 
 //Include Statements
 #include <string>
@@ -34,4 +34,4 @@ public:
     
 };
 
-#endif /* GamePhrases_hpp */
+#endif /* GamePhrases_h */
