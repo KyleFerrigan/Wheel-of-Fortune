@@ -20,17 +20,16 @@ using namespace std;
 class GameState{
 private:
     int _playerMoney;
-    int _prizeMoney;
+    int _prizeMoney; //When spin is called use a random number generator to pick from ifstream.
     bool _endOfTurn;//use this to reset prize money/ cash out prize money/ goto next player
-    
-    
     
 public:
     //Constructor
-    GameState();
+    GameState(); //Hardcode the name of the ifstream file for prizemoney or ask for it in default constructor? Set player money to 0, init prize money.
     
     //Game vars
-    int spin();//add logic in cpp file
+    int spin();//add logic in cpp file, start turn and rng the input file for the prize money
+    int guess(char uInput); //add logic in cpp file, turn ends if user incorrectly guess if correct multiply the number of correct letters by prize money
     
     
 };

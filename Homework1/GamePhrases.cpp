@@ -14,6 +14,3 @@ Behavior: populates the phrases via an input file (ifstream parameter that refer
 #include <fstream>
 #include <stdio.h>
 using namespace std;
-
-
-

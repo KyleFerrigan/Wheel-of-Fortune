@@ -21,15 +21,15 @@ using namespace std;
 class GamePhrases{
 private:
     int _size;
-    string _phrase;
+    string _phrases[0]; //this works but I dont know why
     
 public:
     //Constructor
-    GamePhrases(int phraseSize){_size = phraseSize;}
+    GamePhrases(int phraseSize){string _phrases[phraseSize];}//Size set correctly
     //Setter
-    void setPhrases(string input){_phrase = input;} //TODO Change from string to file
+    void setPhrases(string phrase,int pNum){_phrases[pNum] = phrase;} //TODO Change from string to file, add error handling for larger than phrase size, make input argument just a file name." this will need to go into cpp file since it will be long.
     //Getter
-    string getPhrases(){return _phrase;}
+    string getPhrases(int pNum){return _phrases[pNum];} //This beahvior should be fine even when the file
     
     
 };

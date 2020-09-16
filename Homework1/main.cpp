@@ -19,9 +19,12 @@ using namespace std;
 //Main
 int main(int argc, const char * argv[]) {
     GamePhrases gp(5);
-    gp.setPhrases("hi");
-    gp.getPhrases();
+    gp.setPhrases("hi",4);
+    gp.setPhrases("ho",3);
+    cout << gp.getPhrases(4) << endl;
+    cout << gp.getPhrases(3) << endl;
+    cout << gp.getPhrases(4) << endl;
     
-    cout << "Hello, World!\n";
+    
     return 0;
 }
