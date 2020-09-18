@@ -12,6 +12,54 @@
 #include "GameState.h"
 #include <string>
 #include <iostream>
-#include <fstream>
-#include <stdio.h>
 using namespace std;
+
+GameState::GameState(){
+    //init variables
+    _player1Money = 0;
+    _player2Money = 0;
+    _curPrizeMoney = 0;
+    _curPhrase = "";
+    _phraseState = "";
+    //Fill in Prize Money
+    ifstream infile("C:\\Users\\KyleF\\CLionProjects\\HW1\\PrizeMoney.txt");//Change this to the filepath of Money to use.
+    if (!infile){
+        cout << "Cannot find File" << endl;
+        exit(-1);
+    }
+    for (int i = 0; !infile.eof(); i++){
+        infile >> _prizeMoneyData[i];
+        _size++;
+    }
+    infile.close();
+}
+void GameState::setPhrase(string phraseIn){
+    //Set the Current Phrase
+    _curPhrase = phraseIn;
+    _phraseState = " ";
+    //Also sets the Phrasestate
+    for (int i = 0; i < _curPhrase.length(); i++){
+        if (_curPhrase.at(i) == ' '){
+            _phraseState.append(" ");
+        }
+        else{
+            _phraseState.append("*");
+        }
+    }
+    cout << "DEBUG " << _curPhrase << endl;//TODO Delete this line
+}
+int GameState::spin(){
+    return _prizeMoneyData[(rand() % _size)] ; //Return prize money rng from list
+}
+int GameState::guess(char uInput){//TODO count how many letters correct & change phrase state
+    int count = 0;
+    for (int i = 0; i < _curPhrase.size(); i++){
+        /*if (uInput == _curPhrase){//TODO FIX
+            _phraseState[i] = _curPhrase[i];//TODO FIX
+            count++;
+        }*/
+    }
+
+    return count; //return the amount of letters correct
+}
+

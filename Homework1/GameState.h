@@ -17,21 +17,33 @@
 #include <fstream>
 #include <stdio.h>
 using namespace std;
+
 class GameState{
 private:
-    int _playerMoney;
-    int _prizeMoney; //When spin is called use a random number generator to pick from ifstream.
-    bool _endOfTurn;//use this to reset prize money/ cash out prize money/ goto next player
+    int _player1Money;
+    int _player2Money;
+    int _curPrizeMoney;
+    int _prizeMoneyData[500]; //Store Prize money data from file
+    string _curPhrase;
+    string _phraseState;
+    int _size = 1; //How big the _prizeMoneyData is
     
 public:
     //Constructor
     GameState(); //Hardcode the name of the ifstream file for prizemoney or ask for it in default constructor? Set player money to 0, init prize money.
     
     //Game vars
-    int spin();//add logic in cpp file, start turn and rng the input file for the prize money
+    int spin();//start turn and rng the input file for the prize money
     int guess(char uInput); //add logic in cpp file, turn ends if user incorrectly guess if correct multiply the number of correct letters by prize money
-    
-    
+    void setPrizeMoney(int prizeMoneyIn){_curPrizeMoney = prizeMoneyIn;}
+    int getPrizeMoney(){return _curPrizeMoney;}
+    void setP1Money(int playerMoneyIn){_player1Money = playerMoneyIn;}
+    int getP1Money() {return _player1Money;}
+    void setP2Money(int playerMoneyIn){_player2Money = playerMoneyIn;}
+    int getP2Money() {return _player2Money;}
+    void setPhrase(string phraseIn);
+    string getPhraseState(){return _phraseState;}
+        
 };
 
 #endif /* GameState_h */

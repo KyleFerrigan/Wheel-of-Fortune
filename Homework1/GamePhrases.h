@@ -14,24 +14,17 @@ Behavior: populates the phrases via an input file (ifstream parameter that refer
 //Include Statements
 #include <string>
 #include <iostream>
-#include <fstream>
 #include <stdio.h>
 using namespace std;
 
 class GamePhrases{
 private:
-    int _size;
-    string _phrases[0]; //this works but I dont know why
-    
+    int _size = 0;
+    string _phrases[100];
 public:
-    //Constructor
-    GamePhrases(int phraseSize){string _phrases[phraseSize];}//Size set correctly
-    //Setter
-    void setPhrases(string phrase,int pNum){_phrases[pNum] = phrase;} //TODO Change from string to file, add error handling for larger than phrase size, make input argument just a file name." this will need to go into cpp file since it will be long.
+    GamePhrases(int PhraseAmnt); //testing
     //Getter
-    string getPhrases(int pNum){return _phrases[pNum];} //This beahvior should be fine even when the file
-    
-    
+    string getPhrase();
 };
 
 #endif /* GamePhrases_h */
