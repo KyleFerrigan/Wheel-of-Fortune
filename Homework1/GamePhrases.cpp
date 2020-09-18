@@ -10,13 +10,12 @@ Behavior: populates the phrases via an input file (ifstream parameter that refer
 #include "GamePhrases.h"
 #include <string>
 #include <iostream>
-#include <fstream>
+#include <sstream>
 #include <cstdlib>
 #include <time.h>
 using namespace std;
 
 GamePhrases::GamePhrases(int phraseAmnt){
-    //_phrases = new string[phraseAmnt];
     ifstream infile("C:\\Users\\KyleF\\CLionProjects\\HW1\\GamePhrase.txt");//Change this to the filepath of phrases to use.
     if (!infile){
         cout << "Cannot find File" << endl;
@@ -24,14 +23,13 @@ GamePhrases::GamePhrases(int phraseAmnt){
     }
     _size = 0;
     for (int i = 0; !infile.eof(); i++){
-        infile >> _phrases[i];
+        getline(infile, _phrases[i]); //Get line of phrases
         _size++;
     }
     infile.close();
 }
 string GamePhrases::getPhrase(){
-    srand(time(NULL));
-    int temp =  rand() % _size;
-    cout << "DEBUG " << temp << endl; //TODO Delete this line
+    srand(time(NULL)); //set seed for random function
+    int temp =  rand() % _size; //set random number within range
     return _phrases[temp];
 }

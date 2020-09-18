@@ -20,9 +20,10 @@ using namespace std;
 class GamePhrases{
 private:
     int _size = 0;
-    string _phrases[100];
+    string _phrases[100]; //Conservative Max Value
 public:
-    GamePhrases(int PhraseAmnt); //testing
+    //Default constructor
+    GamePhrases(int PhraseAmnt);
     //Getter
     string getPhrase();
 };

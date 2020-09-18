@@ -26,23 +26,25 @@ private:
     int _prizeMoneyData[500]; //Store Prize money data from file
     string _curPhrase;
     string _phraseState;
-    int _size = 1; //How big the _prizeMoneyData is
-    
+    int _size; //How big the _prizeMoneyData is
+    int _ttlIncorrect = 0;
+    char _incorrectChars[26];
+
 public:
     //Constructor
-    GameState(); //Hardcode the name of the ifstream file for prizemoney or ask for it in default constructor? Set player money to 0, init prize money.
+    GameState();
     
     //Game vars
     int spin();//start turn and rng the input file for the prize money
     int guess(char uInput); //add logic in cpp file, turn ends if user incorrectly guess if correct multiply the number of correct letters by prize money
-    void setPrizeMoney(int prizeMoneyIn){_curPrizeMoney = prizeMoneyIn;}
-    int getPrizeMoney(){return _curPrizeMoney;}
-    void setP1Money(int playerMoneyIn){_player1Money = playerMoneyIn;}
-    int getP1Money() {return _player1Money;}
-    void setP2Money(int playerMoneyIn){_player2Money = playerMoneyIn;}
-    int getP2Money() {return _player2Money;}
-    void setPhrase(string phraseIn);
-    string getPhraseState(){return _phraseState;}
+    void setPrizeMoney(int prizeMoneyIn){_curPrizeMoney = prizeMoneyIn;} //setter for prize money
+    int getPrizeMoney(){return _curPrizeMoney;}//getter for prize money
+    void setP1Money(int playerMoneyIn){_player1Money = playerMoneyIn;} //setter for player 1's money
+    int getP1Money() {return _player1Money;} //getter for player 1's money
+    void setP2Money(int playerMoneyIn){_player2Money = playerMoneyIn;} //setter for player 2's money
+    int getP2Money() {return _player2Money;} //getter for player 2's money
+    void setPhrase(string phraseIn); //setter for the phrase
+    string getPhraseState(){return _phraseState;} //getter for the phrase state
         
 };
 

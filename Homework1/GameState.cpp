@@ -12,6 +12,7 @@
 #include "GameState.h"
 #include <string>
 #include <iostream>
+#include <time.h>
 using namespace std;
 
 GameState::GameState(){
@@ -21,6 +22,8 @@ GameState::GameState(){
     _curPrizeMoney = 0;
     _curPhrase = "";
     _phraseState = "";
+    _size = 0;
+
     //Fill in Prize Money
     ifstream infile("C:\\Users\\KyleF\\CLionProjects\\HW1\\PrizeMoney.txt");//Change this to the filepath of Money to use.
     if (!infile){
@@ -28,38 +31,47 @@ GameState::GameState(){
         exit(-1);
     }
     for (int i = 0; !infile.eof(); i++){
-        infile >> _prizeMoneyData[i];
-        _size++;
+        infile >> _prizeMoneyData[i]; //push money data from file to variable
+        _size++; //keep track of how many elements the data file has
     }
     infile.close();
 }
+
+//set current phrase and phrase state
 void GameState::setPhrase(string phraseIn){
     //Set the Current Phrase
     _curPhrase = phraseIn;
-    _phraseState = " ";
+    _phraseState = "";
     //Also sets the Phrasestate
     for (int i = 0; i < _curPhrase.length(); i++){
-        if (_curPhrase.at(i) == ' '){
+        if (_curPhrase.at(i) == ' '){ //if blank space make the phrase state also blank
             _phraseState.append(" ");
         }
-        else{
+        else{// if there is a letter or number make it a star
             _phraseState.append("*");
         }
     }
-    cout << "DEBUG " << _curPhrase << endl;//TODO Delete this line
 }
+
+//Return Prize Money
 int GameState::spin(){
+    srand(time(NULL)); //set random seed
     return _prizeMoneyData[(rand() % _size)] ; //Return prize money rng from list
 }
-int GameState::guess(char uInput){//TODO count how many letters correct & change phrase state
+
+//Count how many letters correct & change phrase state
+int GameState::guess(char uInput){
     int count = 0;
     for (int i = 0; i < _curPhrase.size(); i++){
-        /*if (uInput == _curPhrase){//TODO FIX
-            _phraseState[i] = _curPhrase[i];//TODO FIX
+        if (uInput == _curPhrase.at(i)){
+            _phraseState.at(i) = _curPhrase.at(i);
             count++;
-        }*/
+        }
     }
-
+    if (count == 0){
+        _incorrectChars[_ttlIncorrect] = uInput; //add incorrect letters to list
+        _ttlIncorrect++;
+    }
     return count; //return the amount of letters correct
 }
 

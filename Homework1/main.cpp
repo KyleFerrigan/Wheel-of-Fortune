@@ -23,33 +23,67 @@ int main() {
     gs.setPhrase(gp.getPhrase());//Sets phrase into gamestate
 
 
-    char gChar = ' ';
+    char gChar = ' '; //Guessing Character
     int lettersCorrect = 0;
-    bool userplaying = true;
+    bool userplaying = true; //sentinel value for outer loop that controls the game
+    bool p1 = true; //player 1's turn
+    bool p2 = false; //player 2's turn
+    string temp1, temp2; //temp values for cin's
+
     while (userplaying){
         bool turnActive = true;
-        while(turnActive){// while P1 turn
-            cout << "Current Board" << endl;
-            cout << gs.getPhraseState() << endl; //print out current board
-            cout << "Spin?" << endl; //TODO change to user prompt and a if statement
-            gs.setPrizeMoney(gs.spin());
+        while(turnActive){
+            cout << "\nCurrent Board" << endl;
+            //Print out current board
+            cout << gs.getPhraseState() << endl;
 
-            cout << "What is your letter guess?";
+            //Ask user if they want to spin
+            cout << "Spin? (y/n)" << endl;
+            cin >> temp1;
+            if (temp1 == "y"){gs.setPrizeMoney(gs.spin());}
+            cout << "Prize Money: "<< gs.getPrizeMoney() << endl;
+
+            //Ask user what letter to guess
+            cout << "What is your letter guess?: ";
             cin >> gChar;
             lettersCorrect = gs.guess(gChar); // Take in user char for guess
-            if (lettersCorrect != 0){
+
+            //If User Guesses Incorrectly Change turns
+            if (lettersCorrect == 0){
+                if (p1 == true) {//if player 1's turn make it player 2's turn
+                    p1 = false;
+                    p2 = true;
+                    cout << "Player 2 Turn" << endl;
+                }
+                else{ //if player 2's turn make it player 1's turn
+                    p1 = true;
+                    p2 = false;
+                    cout << "Player 1 Turn" << endl;
+                }
+                //change turns
                 turnActive = false;
             }
+            //If user guesses correctly multiply number correct by prize money and add to their winnings.
             else{
-                gs.setP1Money(gs.getP1Money()+(lettersCorrect * gs.getPrizeMoney()));
+                if (p1= true) {
+                    gs.setP1Money(gs.getP1Money()+(lettersCorrect * gs.getPrizeMoney()));
+                }
+                else{
+                    gs.setP2Money(gs.getP2Money()+(lettersCorrect * gs.getPrizeMoney()));
+                }
             }
         }
 
-        cout << "continue playing?";
-        string temp;
-        cin >> temp;
-        if (temp == "n" || temp == "no"){
-            userplaying = false;
+        //Ask user if they want to continue playing
+        cout << "\nContinue playing? (y/n): ";
+        cin >> temp2;
+        if (temp2 == "n"){
+            //print out user name and money
+            cout << "Player 1" << endl;
+            cout << "Money: " << gs.getP1Money() << endl;
+            cout << "Player 2" << endl;
+            cout << "Money: " << gs.getP2Money() << endl;
+            userplaying = false; //Switch sentinel value
         }
     }
     return 0;
