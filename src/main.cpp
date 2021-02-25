@@ -1,5 +1,4 @@
 //  main.cpp
-//  Homework1
 //
 //  Created by Kyle Ferrigan on 9/11/20.
 
