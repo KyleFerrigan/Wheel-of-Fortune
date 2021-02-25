@@ -1,5 +1,4 @@
 //  GamePhrases.cpp
-//  Homework1
 //
 //  Created by Kyle Ferrigan on 9/12/20.
 
